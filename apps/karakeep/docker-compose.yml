@@ -1,0 +1,60 @@
+services:
+  web:
+    image: ghcr.io/karakeep-app/karakeep:release
+    restart: unless-stopped
+    volumes:
+      - data:/data
+    env_file:
+      - .env
+    environment:
+      MEILI_ADDR: http://meilisearch:7700
+      BROWSER_WEB_URL: http://chrome:9222
+      # OPENAI_API_KEY: ...
+      DATA_DIR: /data # DON'T CHANGE THIS
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.karakeep.entrypoints=web"
+      - "traefik.http.routers.karakeep.rule=Host(`example.org`)"
+      - "traefik.http.middlewares.karakeep-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.karakeep.middlewares=karakeep-https-redirect"
+      - "traefik.http.routers.karakeep-secure.entrypoints=websecure"
+      - "traefik.http.routers.karakeep-secure.rule=Host(`example.org`)"
+      - "traefik.http.routers.karakeep-secure.tls=true"
+      - "traefik.http.routers.karakeep.tls.certresolver=cloudflare"
+      - "traefik.http.routers.karakeep-secure.service=karakeep"
+      - "traefik.http.services.karakeep.loadbalancer.server.port=3000"
+      - "traefik.docker.network=proxy"
+
+  chrome:
+    image: gcr.io/zenika-hub/alpine-chrome:123
+    restart: unless-stopped
+    command:
+      - --no-sandbox
+      - --disable-gpu
+      - --disable-dev-shm-usage
+      - --remote-debugging-address=0.0.0.0
+      - --remote-debugging-port=9222
+      - --hide-scrollbars
+    networks:
+      - proxy
+  meilisearch:
+    image: getmeili/meilisearch:v1.13.3
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MEILI_NO_ANALYTICS: "true"
+    volumes:
+      - meilisearch:/meili_data
+    networks:
+      - proxy
+
+volumes:
+  meilisearch:
+  data:
+
+networks:
+  proxy:
+    external: true

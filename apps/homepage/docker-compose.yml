@@ -1,0 +1,39 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 4000:3000
+    volumes:
+      - ./config:/app/config # Make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+      - ./images:/app/public/images  # for custom background images
+      - ./icons:/app/public/icons  # for custom icons
+    restart: unless-stopped
+    environment:
+      - HOMEPAGE_ALLOWED_HOSTS=example.org
+      - HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID=$HOMEPAGE_VAR_CLOUDFLARE_ACCOUNT_ID
+      - HOMEPAGE_VAR_CLOUDFLARE_TUNNEL_ID=$HOMEPAGE_VAR_CLOUDFLARE_TUNNEL_ID
+      - HOMEPAGE_VAR_CLOUDFLARE_TOKEN=$HOMEPAGE_VAR_CLOUDFLARE_TOKEN
+      - HOMEPAGE_VAR_FRESHRSS_API_PASSWORD=$HOMEPAGE_VAR_FRESHRSS_API_PASSWORD
+      - HOMEPAGE_VAR_KARAKEEP_API_KEY=$HOMEPAGE_VAR_KARAKEEP_API_KEY
+      - HOMEPAGE_VAR_PIHOLE_API_PASSWORD=$HOMEPAGE_VAR_PIHOLE_API_PASSWORD
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.entrypoints=web"
+      - "traefik.http.routers.homepage.rule=Host(`example.org`)"
+      - "traefik.http.middlewares.homepage-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.homepage.middlewares=homepage-https-redirect"
+      - "traefik.http.routers.homepage-secure.entrypoints=websecure"
+      - "traefik.http.routers.homepage-secure.rule=Host(`example.org`)"
+      - "traefik.http.routers.homepage-secure.tls=true"
+      - "traefik.http.routers.homepage.tls.certresolver=cloudflare"
+      - "traefik.http.routers.homepage-secure.service=homepage"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true

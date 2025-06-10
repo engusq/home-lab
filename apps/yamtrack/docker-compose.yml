@@ -1,0 +1,48 @@
+services:
+  yamtrack:
+    container_name: yamtrack
+    image: ghcr.io/fuzzygrim/yamtrack
+    restart: unless-stopped
+    depends_on:
+      - redis
+    environment:
+      - TZ= #Timezone
+      - SECRET=
+      - REDIS_URL=redis://redis:6379
+      - URLS=https://example.org
+      - WEB_CONCURRENCY=3
+    volumes:
+      - ./db:/yamtrack/db
+    networks:
+        - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.yamtrack.entrypoints=web"
+      - "traefik.http.routers.yamtrack.rule=Host(`example.org`)"
+      - "traefik.http.middlewares.yamtrack-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.yamtrack.middlewares=yamtrack-https-redirect"
+      - "traefik.http.routers.yamtrack-secure.entrypoints=websecure"
+      - "traefik.http.routers.yamtrack-secure.rule=Host(`example.org`)"
+      - "traefik.http.routers.yamtrack-secure.tls=true"
+      - "traefik.http.routers.yamtrack.tls.certresolver=cloudflare"
+      - "traefik.http.routers.yamtrack-secure.service=yamtrack"
+      - "traefik.http.services.yamtrack.loadbalancer.server.port=8000"
+      - "traefik.docker.network=proxy"
+    ports:
+      - "2000:8000"
+
+  redis:
+    container_name: yamtrack-redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - proxy
+
+volumes:
+  redis_data:
+
+networks:
+  proxy:
+    external: true
