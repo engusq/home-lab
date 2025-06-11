@@ -14,15 +14,15 @@ At the moment, my homelab equipment consists only of a single Samsung laptop. It
 
 | Logo                                                                                        | Name                                              | Description                                   |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| ![\|37](https://github.com/homarr-labs/dashboard-icons/blob/main/png/freshrss.png?raw=true) | [FreshRSS](https://freshrss.org/)                 | Feature-rich RSS feed reader                  |
-| ![\|37](https://github.com/homarr-labs/dashboard-icons/blob/main/png/karakeep.png?raw=true) | [Karakeep](https://karakeep.app/)                 | Bookmarking solution for hoarding information |
-| ![\|37](https://github.com/homarr-labs/dashboard-icons/blob/main/png/yamtrack.png?raw=true) | [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) | Media tracking platform                       |
+| ![](./images/37freshrss.png) | [FreshRSS](https://freshrss.org/)                 | Feature-rich RSS feed reader                  |
+| ![](./images/35karakeep.png) | [Karakeep](https://karakeep.app/)                 | Bookmarking solution for hoarding information |
+| ![](./images/37yamtrack.png) | [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) | Media tracking platform                       |
 
 #### Tools
 
 | Logo                                                                                        | Name                                 | Description                      |
 | ------------------------------------------------------------------------------------------- | ------------------------------------ | -------------------------------- |
-| ![\|34](https://github.com/homarr-labs/dashboard-icons/blob/main/png/homepage.png?raw=true) | [Homepage](https://gethomepage.dev/) | General dashboard for my homelab |
+| ![](./images/33homepage.png) | [Homepage](https://gethomepage.dev/) | General dashboard for my homelab |
 
 ## Infrastructure
 
