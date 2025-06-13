@@ -30,7 +30,7 @@ The digital structure that sustains my homelab.
 
 | Logo                       | Name                                   | Description                                                                                                                                                       |
 | -------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](./images/twingate.png) | [Twingate](https://www.twingate.com/)  | Zero trust platform for securing remote access to my homelab.                                                                                                     |
+| ![](./images/twingate-light.png) | [Twingate](https://www.twingate.com/)  | Zero trust platform for securing remote access to my homelab.                                                                                                     |
 | ![](./images/pi-hole.png)  | [Pi-Hole](https://pi-hole.net/)        | DNS server for internal domain resolution.                                                                                                                        |
 | ![](./images/traefik.png)  | [Traefik](https://traefik.io/traefik/) | Reverse proxy with dynamic and static configurations that secure the traffic of my internal networks with [Let’s Encrypt](https://letsencrypt.org/) certificates. |
 
