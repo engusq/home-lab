@@ -42,4 +42,12 @@ The digital structure that sustains my homelab.
 | ![](./images/nginx.png)                 | [NGINX](https://nginx.org/)                                                                        | Modern web server that serves the content of my blog.                                     |
 | ![](./images/cloudflare-zero-trust.png) | [Clouflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) | Private tunnel to expose public services to the internet without revealing my IP address. |
 
-
+## Roadmap
+General milestones in order to upgrade my homelab.
+- [ ] Migrate homelab to Proxmox.
+- [ ] Separate homelab into production and testing VMs.
+- [ ] Set up monitoring with Grafana and Prometheus.
+- [ ] Implement automation with Ansible and Terraform.
+- [ ] Set up a firewall and cybersecurity infrastructure.
+- [ ] Configure subnets to isolate traffic.
+- [ ] Set up a Talos Linux VM to start with Kubernetes.
