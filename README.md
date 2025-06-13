@@ -25,12 +25,18 @@ At the moment, my homelab equipment consists only of a single Samsung laptop. It
 | ![](./images/33homepage.png) | [Homepage](https://gethomepage.dev/) | General dashboard for my homelab |
 
 ## Infrastructure
+The digital structure that sustains my homelab.
+### Networking
 
-Everything needed to run my cluster & deploy my applications
+| Logo                      | Name                                   | Description                                                                                                                                                      |
+| ------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![](./images/pi-hole.png) | [Pi-Hole](https://pi-hole.net/)        | DNS server for internal domain resolution                                                                                                                        |
+| ![](./images/traefik.png) | [Traefik](https://traefik.io/traefik/) | Reverse proxy with dynamic and static configurations that secure the traffic of my internal networks with [Let’s Encrypt](https://letsencrypt.org/) certificates |
 
-|     |     |
-| --- | --- |
-|     |     |
+### Blog
 
-## Roadmap
-- 
+| Logo | Name | Description |
+| ---- | ---- | ----------- |
+|      |      |             |
+|      |      |             |
+
