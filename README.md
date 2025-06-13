@@ -14,29 +14,32 @@ At the moment, my homelab equipment consists only of a single Samsung laptop. It
 
 | Logo                                                                                        | Name                                              | Description                                   |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| ![](./images/37freshrss.png) | [FreshRSS](https://freshrss.org/)                 | Feature-rich RSS feed reader                  |
-| ![](./images/35karakeep.png) | [Karakeep](https://karakeep.app/)                 | Bookmarking solution for hoarding information |
-| ![](./images/37yamtrack.png) | [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) | Media tracking platform                       |
+| ![](./images/37freshrss.png) | [FreshRSS](https://freshrss.org/)                 | Feature-rich RSS feed reader.                  |
+| ![](./images/35karakeep.png) | [Karakeep](https://karakeep.app/)                 | Bookmarking solution for hoarding information. |
+| ![](./images/37yamtrack.png) | [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) | All-around media tracker.                       |
 
 #### Tools
 
 | Logo                                                                                        | Name                                 | Description                      |
 | ------------------------------------------------------------------------------------------- | ------------------------------------ | -------------------------------- |
-| ![](./images/33homepage.png) | [Homepage](https://gethomepage.dev/) | General dashboard for my homelab |
+| ![](./images/33homepage.png) | [Homepage](https://gethomepage.dev/) | General dashboard for my homelab. |
 
 ## Infrastructure
 The digital structure that sustains my homelab.
 ### Networking
 
-| Logo                      | Name                                   | Description                                                                                                                                                      |
-| ------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](./images/pi-hole.png) | [Pi-Hole](https://pi-hole.net/)        | DNS server for internal domain resolution                                                                                                                        |
-| ![](./images/traefik.png) | [Traefik](https://traefik.io/traefik/) | Reverse proxy with dynamic and static configurations that secure the traffic of my internal networks with [Let’s Encrypt](https://letsencrypt.org/) certificates |
+| Logo                       | Name                                   | Description                                                                                                                                                       |
+| -------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![](./images/twingate.png) | [Twingate](https://www.twingate.com/)  | Zero trust platform for securing remote access to my homelab.                                                                                                     |
+| ![](./images/pi-hole.png)  | [Pi-Hole](https://pi-hole.net/)        | DNS server for internal domain resolution.                                                                                                                        |
+| ![](./images/traefik.png)  | [Traefik](https://traefik.io/traefik/) | Reverse proxy with dynamic and static configurations that secure the traffic of my internal networks with [Let’s Encrypt](https://letsencrypt.org/) certificates. |
+
 
 ### Blog
 
-| Logo | Name | Description |
-| ---- | ---- | ----------- |
-|      |      |             |
-|      |      |             |
+| Logo                                    | Name                                                                                               | Description                                                                               |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| ![](./images/nginx.png)                 | [NGINX](https://nginx.org/)                                                                        | Modern web server that serves the content of my blog.                                     |
+| ![](./images/cloudflare-zero-trust.png) | [Clouflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) | Private tunnel to expose public services to the internet without revealing my IP address. |
+
 
